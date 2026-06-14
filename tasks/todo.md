@@ -51,3 +51,11 @@ This plan outlines the steps to perform a deep-dive market research and demand v
 - [x] Turn off/relax scroll snapping on mobile: Disable or adjust scroll snapping on devices with small heights/widths to avoid jarring scrolling behavior.
 - [x] Implement checkout flow: Add a modern, dark-glassmorphism checkout modal/drawer triggered by the CTA buttons.
 - [x] Create mock payment & download: Add a simulated Razorpay step in the modal leading to a successful mock PDF download.
+
+## Phase 8: Pivot to IT Service-to-Product Transition
+- [x] Update `landing_page_blueprint.md` with copywriting blueprints for the IT Service-to-Product guide.
+- [x] Update `index.html` with a premium "Developer Noir" terminal theme, new developer-centric copywriting, and updated mock PDF content.
+- [x] Push changes to the GitHub repository.
+- [x] Deploy to Vercel and verify the live build is working.
+
+
