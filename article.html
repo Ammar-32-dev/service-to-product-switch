@@ -347,13 +347,22 @@
                 Nine months later, I cleared the backend interview at Swiggy with a <strong>₹18 LPA CTC package</strong>. 
             </p>
             <p>
-                I didn't pay ₹1,00,000 for a coding bootcamp, and I didn't solve 1,000 LeetCode problems. Here is the exact, step-by-step roadmap I used to break out of the system.
+                I didn't pay ₹1,00,000 for a coding bootcamp, and I didn't solve 1,000 LeetCode problems. Here is the exact, step-by-step 8-chapter roadmap I used to break out of the system.
             </p>
 
-            <!-- Section 1 -->
-            <h2>Phase 1: Overcoming the ATS Resume Filter</h2>
+            <!-- Chapter 1 -->
+            <h2>Chapter 1: Decoding the Product Mindset</h2>
             <p>
-                When you apply from a service giant like TCS, Infosys, or Cognizant, product-company recruitment systems (ATS) often filter you out immediately. If your resume contains words like <em>"Supported client operations," "Maintained server uptime,"</em> or <em>"Responded to tickets,"</em> you are flagged as a support engineer, not a developer.
+                The fundamental shift starting out is mental. In service giants, you are measured by <strong>billing utilization</strong> and **SLA ticket closure rates**. Quality is often sacrificed to meet strict, arbitrary contract agreements. You write code for a client who gave you a static PDF specification.
+            </p>
+            <p>
+                In product companies, you are measured by **reliability, latency, and business metrics**. You own what you build. You must transition from saying <em>"I closed the ticket because it complied with the spec"</em> to <em>"I optimized this user flow to prevent database locks, saving 20% on server costs and improving conversion."</em> Learn to think in terms of product features and end-user behavior.
+            </p>
+
+            <!-- Chapter 2 -->
+            <h2>Chapter 2: The Resume Overhaul</h2>
+            <p>
+                When you apply from a service giant, product-company recruitment systems (ATS) often filter you out immediately. If your resume contains words like <em>"Supported client operations," "Maintained server uptime,"</em> or <em>"Responded to tickets,"</em> you are flagged as a support engineer.
             </p>
             <p>
                 I had to rewrite my resume completely. I replaced generic project summaries with impact-oriented bullet points:
@@ -380,8 +389,64 @@
                 <span class="image-caption">Figure 1: Reframing legacy client databases into clean, modern API microservice designs.</span>
             </div>
 
-            <!-- Section 2 -->
-            <h2>Phase 2: Escaping the 90-Day Notice Period Lock</h2>
+            <!-- Chapter 3 -->
+            <h2>Chapter 3: The 80/20 DSA Roadmap</h2>
+            <p>
+                You do not need to solve 800 LeetCode problems to clear a product interview. Most startup coding rounds check if you can recognize patterns, not if you have memorized academic solutions.
+            </p>
+            <p>
+                I focused exclusively on the <strong>5 Core Patterns</strong> that cover 80% of all interview questions:
+            </p>
+            <ul>
+                <li><strong>Sliding Window:</strong> Subarray tracking problems (e.g., maximum sum subarray of size K, longest substring without repeating characters).</li>
+                <li><strong>Merge Intervals:</strong> Scheduling problems, booking calendars, and resource scheduling.</li>
+                <li><strong>BFS/DFS on Graphs:</strong> Shortest paths, peer network maps, and directory structure traversal.</li>
+                <li><strong>Two Heaps:</strong> Median tracking and queue scheduling tasks.</li>
+                <li><strong>Topological Sort:</strong> Finding dependencies in compilers, build targets, or job scheduling orders.</li>
+            </ul>
+
+            <!-- Chapter 4 -->
+            <h2>Chapter 4: System Design for Service Developers</h2>
+            <p>
+                This was my biggest fear. In my service company job, the maximum database load was 100 queries a day. How was I going to answer questions about designing system architectures that handle 100,000 requests per second?
+            </p>
+            <p>
+                The secret is that system design is about trade-offs, not actual scaling experience. You must understand where bottlenecks occur and how to resolve them using standard blocks:
+            </p>
+
+            <div class="article-image-box">
+                <img src="assets/developer_noir_grid.png" alt="Developer sitting at desk looking at systems diagram overlay">
+                <span class="image-caption">Figure 2: Re-architecting microservices to handle concurrent request surges.</span>
+            </div>
+
+            <h3>Real-World Walkthrough 1: Swiggy's Real-time Driver Assignment</h3>
+            <p>
+                <strong>The Problem:</strong> Thousands of active delivery partners transmit latitude/longitude coordinates every 10 seconds. Querying a standard MySQL database to calculate the closest driver using the Haversine formula for every order will immediately lock tables and crash your application.
+            </p>
+            <p>
+                <strong>The Scaling Solution:</strong>
+            </p>
+            <ol>
+                <li><strong>Spatial Indexing (Geohash / S2 Geometry):</strong> Map Earth coordinates to a string hash (e.g., cell codes). Drivers in the same neighborhood share the same string prefix.</li>
+                <li><strong>In-Memory Caching (Redis Geo):</strong> Store driver locations in a Redis Sorted Set keyed by Geohash. Redis uses spatial index libraries (like Geospatial indexes) to perform radius searches (`GEORADIUS`) in sub-milliseconds, bypassing database disks completely.</li>
+                <li><strong>Asynchronous Updates:</strong> Stream location coordinate feeds to a Kafka cluster, allowing a background location tracker microservice to ingest and update Redis off the main ordering thread.</li>
+            </ol>
+
+            <h3>Real-World Walkthrough 2: IRCTC High-Concurrency Booking</h3>
+            <p>
+                <strong>The Problem:</strong> At exactly 11:00 AM, millions of users try to book Tatkal tickets. Storing seat counts in a relational database and using standard transactions (`SELECT ... FOR UPDATE`) causes a massive queue of waiting database threads, leading to timeout errors (HTTP 504) and payment failures.
+            </p>
+            <p>
+                <strong>The Scaling Solution:</strong>
+            </p>
+            <ol>
+                <li><strong>Optimistic Locking:</strong> Instead of blocking the database during seat verification, read the seat version. When writing, check if the version is unchanged (`UPDATE seats SET booked=true, version=version+1 WHERE id=X AND version=current_version`). If failed, retry.</li>
+                <li><strong>Token Bucket Rate Limiting (Redis):</strong> Limit booking requests per user using Redis-based token buckets, preventing automated scrapers from overwhelming your API.</li>
+                <li><strong>Reservation Queue (Kafka):</strong> Decouple ordering from payment processing. When a user clicks "Book," place the booking instruction into a Kafka topic. A pool of ticket worker microservices consumes this queue, reserving seats sequentially and asynchronously sending payment links, avoiding massive database request spikes.</li>
+            </ol>
+
+            <!-- Chapter 5 -->
+            <h2>Chapter 5: Bypassing the 90-Day Notice Lock</h2>
             <p>
                 Startups and product companies operate at high speeds. They want developers who can join immediately or within 30 days. When you tell a recruiter you have a <strong>90-day notice period</strong>, the conversation usually ends.
             </p>
@@ -400,43 +465,42 @@
                 </li>
             </ol>
 
-            <!-- Section 3 -->
-            <h2>Phase 3: The 80/20 DSA Pattern Checklist</h2>
+            <!-- Chapter 6 -->
+            <h2>Chapter 6: Behavioral Rounds (MAANG Secrets)</h2>
             <p>
-                You do not need to solve 800 LeetCode problems to clear a product interview. In fact, doing so will lead to burnout. Most startup coding rounds check if you can recognize patterns, not if you have memorized academic solutions.
+                Behavioral interviews check if you are a culture fit. Recruiters look for indicators of ownership, communication, and conflict resolution. In service companies, "agreeing with the client" is standard. In product companies, this is viewed as a lack of initiative.
             </p>
             <p>
-                I focused exclusively on the <strong>5 Core Patterns</strong> that cover 80% of all interview questions:
+                When asked, <em>"Why do you want to leave your service company?"</em> never complain about low pay or boring maintenance work. Frame it as a desire for ownership:
+            </p>
+            <blockquote>
+                "I want to transition from a project where requirements are locked behind client specs, to a team where I can directly analyze metrics, collaborate with product managers, and hold long-term engineering ownership over the code I write."
+            </blockquote>
+
+            <!-- Chapter 7 -->
+            <h2>Chapter 7: Salary Negotiation (The 100% Hike Hack)</h2>
+            <p>
+                Service companies train you to accept standard 10% hikes. When switching to a product company, HR will try to anchor your offer to your previous low salary (e.g., offering a 30% hike on 3.6 LPA, resulting in 4.6 LPA).
+            </p>
+            <p>
+                To bypass this, do not negotiate on percentage hikes. Negotiate on **market rate bands**. Research the standard salary range for a Software Engineer at the target company using platform resources (Glassdoor, LeetCode compensation forums, levels.fyi). Hook HR on value:
+            </p>
+            <p>
+                <em>"I am looking for compensation that aligns with the SDE-1 market range at your company, which stands around ₹12L–₹15L. I am in the final stages of interviewing with another startup that is aligned with this band."</em> Having parallel interviews scheduled is your absolute strongest leverage.
+            </p>
+
+            <!-- Chapter 8 -->
+            <h2>Chapter 8: Surviving the First 90 Days</h2>
+            <p>
+                Congratulations, you switched! But the work has just begun. The deployment culture is vastly different. Instead of weekly manual deployments reviewed by release managers, you will be deploying code multiple times a day via automated CI/CD pipelines.
+            </p>
+            <p>
+                To survive and thrive:
             </p>
             <ul>
-                <li><strong>Sliding Window:</strong> Used for arrays and strings where you need to track a contiguous subarray (e.g., maximum sum subarray of size K).</li>
-                <li><strong>Merge Intervals:</strong> Crucial for scheduling systems, calendars, and booking apps.</li>
-                <li><strong>BFS/DFS on Trees/Graphs:</strong> Navigating system nodes, directory structures, and social connections.</li>
-                <li><strong>Two Heaps:</strong> Used for keeping track of median or scheduling priority tasks (e.g., queue dispatchers).</li>
-                <li><strong>Topological Sort:</strong> Finding dependencies in build processes or job schedulers.</li>
-            </ul>
-
-            <!-- Section 4 -->
-            <h2>Phase 4: Talking System Design Without Scale Experience</h2>
-            <p>
-                This was my biggest fear. In my service company job, the maximum database load was 100 queries a day. How was I going to answer questions about designing system architectures that handle 100,000 requests per second?
-            </p>
-            <p>
-                The secret is that system design is about trade-offs, not actual scaling experience. You must understand where bottlenecks occur and how to resolve them using standard blocks:
-            </p>
-
-            <div class="article-image-box">
-                <img src="assets/developer_noir_grid.png" alt="Developer sitting at desk looking at systems diagram overlay">
-                <span class="image-caption">Figure 2: Re-architecting microservices to handle concurrent request surges.</span>
-            </div>
-
-            <p>
-                Instead of saying, <em>"I don't know, we didn't use databases,"</em> you must propose solutions using key architectural blocks:
-            </p>
-            <ul>
-                <li><strong>Introduce Caching (Redis/Memcached):</strong> Explain how caching static database results (like user profile info) prevents the main database from crashing during traffic spikes.</li>
-                <li><strong>Add Message Queues (Kafka/RabbitMQ):</strong> Show how moving slow tasks (like sending emails or processing payment receipts) to a background queue keeps the user interface responsive.</li>
-                <li><strong>Database Sharding & Replication:</strong> Discuss splitting a single database into read-replicas to handle concurrent query spikes.</li>
+                <li><strong>Write Unit Tests:</strong> Do not submit a Pull Request without unit tests. In product teams, untested code is rejected code.</li>
+                <li><strong>Ask Questions Early:</strong> Do not sit on a blocking issue for two days. Ask for help on Slack, showing what you have already tried.</li>
+                <li><strong>Understand the CI/CD Pipeline:</strong> Learn how the deployment pipeline runs, where to check build logs, and how to rollback changes if anything breaks in production.</li>
             </ul>
 
             <div class="callout-box">
