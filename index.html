@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Tenant's Shield — Legal tactics and templates to recover your security deposit from Indian landlords. Copy-paste legal notices, IPC references, and court filing guides.">
+    <title>The Tenant's Shield | Recover Your Security Deposit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════
+           DESIGN SYSTEM — Legal Noir Scrolltelling
+           VARIANCE: 9 | MOTION: 8 | DENSITY: 3
+           ═══════════════════════════════════════════ */
+
+        :root {
+            --obsidian: #08080a;
+            --obsidian-warm: #0e0e12;
+            --surface: #141418;
+            --surface-raised: #1a1a20;
+            --border: #252530;
+            --text-primary: #e8e6e3;
+            --text-secondary: #8a8a96;
+            --text-muted: #55556a;
+            --accent: #c8553d;
+            --accent-glow: rgba(200, 85, 61, 0.15);
+            --jade: #3ecf8e;
+            --jade-glow: rgba(62, 207, 142, 0.1);
+            --warning: #e63946;
+            --gold: #d4a853;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y proximity;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--obsidian);
+            color: var(--text-primary);
+            font-family: 'Outfit', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Film Grain Overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ═══════ TYPOGRAPHY ═══════ */
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* ═══════ SCROLL SCENES ═══════ */
+        .scene {
+            min-height: 100dvh;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            perspective: 1200px;
+            overflow: hidden;
+        }
+
+        .scene-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ═══════ REVEAL ANIMATIONS ═══════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) rotateX(8deg);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.15s; }
+        .reveal-delay-2 { transition-delay: 0.3s; }
+        .reveal-delay-3 { transition-delay: 0.45s; }
+        .reveal-delay-4 { transition-delay: 0.6s; }
+        .reveal-delay-5 { transition-delay: 0.75s; }
+
+        /* Slide from left */
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+        /* Slide from right */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(100px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* ═══════════════════════════════════
+           SCENE 1 — THE OPENING (HERO)
+           ═══════════════════════════════════ */
+        #scene-opening {
+            background:
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(200, 85, 61, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 60%, rgba(62, 207, 142, 0.03) 0%, transparent 70%),
+                var(--obsidian);
+            padding-top: 80px;
+        }
+
+        .hero-chapter {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-chapter::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .hero-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -3px;
+            color: var(--text-primary);
+            max-width: 900px;
+            margin-bottom: 40px;
+        }
+
+        .hero-headline em {
+            font-style: italic;
+            color: var(--accent);
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-headline em::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            opacity: 0.4;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .hero-price-strip {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .price-current {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .price-original {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        /* CTA Button — Tactile */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 40px;
+            background: var(--accent);
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        box-shadow 0.3s ease;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(200, 85, 61, 0.3),
+                        0 0 0 1px rgba(200, 85, 61, 0.5);
+        }
+
+        .cta-primary:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-subtext {
+            display: block;
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 1px;
+        }
+
+        /* ═══════════════════════════════════
+           SCENE 2 — THE CRIME (PROBLEMS)
+           ═══════════════════════════════════ */
+        #scene-crime {
+            background:
+                linear-gradient(180deg, var(--obsidian) 0%, var(--obsidian-warm) 50%, var(--obsidian) 100%);
+        }
+
+        .crime-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--warning);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .crime-label::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--warning);
+        }
+
+        .crime-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 60px;
+            max-width: 700px;
+        }
+
+        .crime-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+        }
+
+        .crime-card {
+            padding: 50px 40px;
+            background: var(--surface);
+            position: relative;
+            overflow: hidden;
+            transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: default;
+        }
+
+        .crime-card:hover {
+            background: var(--surface-raised);
+            transform: scale(1.01);
+            z-index: 2;
+        }
+
+        .crime-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--warning);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .crime-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .crime-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--warning);
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .crime-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        .crime-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 380px;
+        }
+
+        /* ═══════════════════════════════════
+           SCENE 3 — THE WEAPON (SOLUTION)
+           ═══════════════════════════════════ */
+        #scene-weapon {
+            background:
+                radial-gradient(ellipse 50% 40% at 75% 50%, var(--accent-glow) 0%, transparent 70%),
+                var(--obsidian);
+        }
+
+        .weapon-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* 3D Book */
+        .book-3d-wrapper {
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .book-3d {
+            width: 280px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-25deg) rotateX(5deg);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .book-3d:hover {
+            transform: rotateY(-5deg) rotateX(2deg) translateZ(30px);
+        }
+
+        .book-cover {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, #1a1520 0%, #0d0b10 40%, var(--accent) 150%);
+            border-radius: 2px 12px 12px 2px;
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow:
+                10px 10px 30px rgba(0,0,0,0.6),
+                -2px 0 10px rgba(0,0,0,0.3),
+                inset -2px 0 10px rgba(255,255,255,0.03);
+            transform: translateZ(20px);
+            border-left: 4px solid rgba(200, 85, 61, 0.6);
+        }
+
+        .book-spine {
+            position: absolute;
+            left: -18px;
+            top: 0;
+            width: 20px;
+            height: 100%;
+            background: linear-gradient(to right, #0a080c, #151218);
+            transform: rotateY(90deg) translateZ(0px);
+            transform-origin: right;
+            border-radius: 2px 0 0 2px;
+        }
+
+        .book-back {
+            position: absolute;
+            inset: 0;
+            background: #0a080c;
+            transform: translateZ(-2px);
+            border-radius: 2px 12px 12px 2px;
+        }
+
+        .book-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .book-cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: white;
+        }
+
+        .book-cover-subtitle {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.5;
+        }
+
+        .weapon-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .weapon-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            max-width: 480px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .arsenal-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .arsenal-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .arsenal-item:hover {
+            border-color: var(--jade);
+            transform: translateX(8px);
+        }
+
+        .arsenal-check {
+            width: 24px;
+            height: 24px;
+            background: var(--jade-glow);
+            border: 1px solid var(--jade);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--jade);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .arsenal-text strong {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .arsenal-text span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ═══════════════════════════════════
+           SCENE 4 — THE EVIDENCE (CHAPTERS)
+           ═══════════════════════════════════ */
+        #scene-evidence {
+            background: var(--obsidian-warm);
+        }
+
+        .evidence-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .evidence-label::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .evidence-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
+        .chapter-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .chapter-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            border-top: 1px solid var(--border);
+            transition: background 0.4s ease;
+            cursor: default;
+        }
+
+        .chapter-row:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-row:hover {
+            background: var(--surface);
+        }
+
+        .chapter-row:hover .chapter-idx {
+            color: var(--accent);
+        }
+
+        .chapter-idx {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            padding: 36px 0 36px 8px;
+            border-right: 1px solid var(--border);
+            transition: color 0.3s ease;
+        }
+
+        .chapter-body {
+            padding: 36px 40px;
+        }
+
+        .chapter-body h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .chapter-body p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════
+           SCENE 5 — THE VERDICT (SOCIAL PROOF)
+           ═══════════════════════════════════ */
+        #scene-verdict {
+            background:
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(62, 207, 142, 0.04) 0%, transparent 70%),
+                var(--obsidian);
+        }
+
+        .verdict-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .testimony {
+            padding: 48px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: border-color 0.4s ease;
+        }
+
+        .testimony:hover {
+            border-color: var(--jade);
+        }
+
+        .testimony::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            line-height: 1;
+            color: var(--border);
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+
+        .testimony blockquote {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimony cite {
+            font-style: normal;
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .testimony cite strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .testimony cite span {
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+
+        /* Guarantee */
+        .guarantee {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 48px;
+            border: 1px solid var(--jade);
+            background: var(--jade-glow);
+            position: relative;
+        }
+
+        .guarantee-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--jade);
+            margin-bottom: 20px;
+        }
+
+        .guarantee h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .guarantee p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ═══════════════════════════════════
+           SCENE 6 — THE QUESTIONS (FAQ)
+           ═══════════════════════════════════ */
+        #scene-questions {
+            background: var(--obsidian-warm);
+        }
+
+        .faq-container {
+            max-width: 720px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-q {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 28px 0;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .faq-q:hover { color: var(--accent); }
+
+        .faq-arrow {
+            width: 24px;
+            height: 24px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.3s ease,
+                        color 0.3s ease;
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(45deg);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-a-inner {
+            padding-bottom: 28px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        /* ═══════════════════════════════════
+           SCENE 7 — THE CLOSING (FINAL CTA)
+           ═══════════════════════════════════ */
+        #scene-closing {
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 60%, rgba(200, 85, 61, 0.08) 0%, transparent 70%),
+                var(--obsidian);
+            text-align: center;
+        }
+
+        .closing-chapter {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 40px;
+        }
+
+        .closing-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .closing-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .closing-price {
+            margin-bottom: 40px;
+        }
+
+        .closing-price .price-current {
+            font-size: 3.5rem;
+        }
+
+        .closing-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .closing-footer-left {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 1px;
+        }
+
+        .closing-footer-right {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ═══════ SCROLL PROGRESS BAR ═══════ */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 10000;
+            transform-origin: left;
+            transform: scaleX(0);
+            width: 100%;
+            transition: none;
+        }
+
+        /* ═══════ CHECKOUT MODAL ═══════ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 8, 10, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 440px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            transform: translateY(30px) scale(0.96);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-step {
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .modal-step.active {
+            display: flex;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .input-field {
+            background: var(--obsidian);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(200, 85, 61, 0.15);
+        }
+
+        .order-summary {
+            background: var(--obsidian);
+            border: 1px solid var(--border);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-summary span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .order-summary strong {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        /* Razorpay Mock Styles */
+        .rp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+        }
+
+        .rp-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            color: #008ecc;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .rp-logo span {
+            color: var(--text-primary);
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .rp-amount {
+            text-align: right;
+        }
+
+        .rp-amount div {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .rp-amount span {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .method-card {
+            border: 1px solid var(--border);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: var(--accent);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .method-card.selected {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        .method-icon {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        .method-info strong {
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .method-info span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--jade-glow);
+            border: 2px solid var(--jade);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--jade);
+            margin: 0 auto;
+            animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .success-details {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .success-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .success-details p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .transaction-box {
+            background: var(--obsidian);
+            border: 1px solid var(--border);
+            padding: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            word-break: break-all;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ═══════ RESPONSIVE ═══════ */
+        @media (max-width: 900px) {
+            html {
+                scroll-snap-type: none !important;
+            }
+            .scene {
+                scroll-snap-align: none !important;
+                min-height: auto !important;
+                height: auto !important;
+                overflow: visible !important;
+                padding: 40px 0;
+            }
+            .scene-inner {
+                padding: 40px 24px;
+            }
+            .crime-grid { grid-template-columns: 1fr; }
+            .weapon-layout { grid-template-columns: 1fr; gap: 50px; }
+            .verdict-layout { grid-template-columns: 1fr; }
+            .chapter-row { grid-template-columns: 80px 1fr; }
+            .closing-footer { flex-direction: column; gap: 16px; text-align: center; }
+            .crime-card { padding: 36px 28px; }
+            .testimony { padding: 32px; }
+            .book-3d { width: 220px; height: 320px; }
+            .hero-headline { font-size: clamp(2.5rem, 8vw, 4rem); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline { font-size: clamp(2rem, 9vw, 3rem); letter-spacing: -1px; }
+            .hero-price-strip { flex-direction: column; gap: 4px; }
+            .cta-primary { width: 100%; justify-content: center; padding: 18px 24px; }
+            .chapter-row { grid-template-columns: 50px 1fr; }
+            .chapter-idx { padding: 24px 0; font-size: 0.65rem; }
+            .chapter-body { padding: 24px 16px; }
+            .crime-title, .weapon-content h2, .evidence-title, .closing-headline { font-size: 1.8rem !important; }
+            .book-3d-wrapper { transform: scale(0.85); margin-bottom: -40px; }
+            .testimony { padding: 24px 16px; }
+            .guarantee { padding: 32px 20px; }
+            .modal-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- ═══════ SCENE 1: THE OPENING ═══════ -->
+    <section class="scene" id="scene-opening">
+        <div class="scene-inner">
+            <div class="hero-chapter reveal">Scene I</div>
+            <h1 class="hero-headline reveal reveal-delay-1">
+                Stop Your Landlord<br>
+                From <em>Stealing</em><br>
+                Your Deposit.
+            </h1>
+            <p class="hero-sub reveal reveal-delay-2">
+                The legal framework to recover ₹50,000–₹2,00,000 without litigation, court visits, or months of waiting. Copy-paste templates. Specific IPC sections. Tested on Indian landlords.
+            </p>
+            <div class="reveal reveal-delay-3">
+                <div class="hero-price-strip">
+                    <span class="price-current">₹499</span>
+                    <span class="price-original">₹799</span>
+                </div>
+                <a href="#scene-closing" class="cta-primary" id="hero-cta-btn">
+                    Get the Tactical Playbook
+                    <span style="font-size: 1.2rem;">→</span>
+                </a>
+                <span class="cta-subtext">Instant PDF download via email</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ SCENE 2: THE CRIME ═══════ -->
+    <section class="scene" id="scene-crime">
+        <div class="scene-inner">
+            <div class="crime-label reveal">Scene II — The Crime</div>
+            <h2 class="crime-title reveal reveal-delay-1">
+                The system is built to make you give up.
+            </h2>
+            <div class="crime-grid">
+                <div class="crime-card reveal reveal-delay-1">
+                    <div class="crime-number">001</div>
+                    <h3>The Painting Scam</h3>
+                    <p>₹20,000 deducted for "repainting" a flat with walls that were already peeling when you moved in. Your deposit funds their renovation.</p>
+                </div>
+                <div class="crime-card reveal reveal-delay-2">
+                    <div class="crime-number">002</div>
+                    <h3>False Wear & Tear</h3>
+                    <p>Charged for replacing geysers, fans, and curtains that degraded over four years of natural use. They bill you for time itself.</p>
+                </div>
+                <div class="crime-card reveal reveal-delay-3">
+                    <div class="crime-number">003</div>
+                    <h3>The Ghosting Protocol</h3>
+                    <p>Keys handed over. Messages sent. Then silence. Calls go unanswered for six months. They are betting you will move on.</p>
+                </div>
+                <div class="crime-card reveal reveal-delay-4">
+                    <div class="crime-number">004</div>
+                    <h3>The Police Dead End</h3>
+                    <p>"This is a civil matter, sir." The officer turns you away. No FIR. No leverage. No recourse. Exactly what the landlord planned.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ SCENE 3: THE WEAPON ═══════ -->
+    <section class="scene" id="scene-weapon">
+        <div class="scene-inner">
+            <div class="weapon-layout">
+                <div class="book-3d-wrapper reveal-left">
+                    <div class="book-3d">
+                        <div class="book-back"></div>
+                        <div class="book-spine"></div>
+                        <div class="book-cover">
+                            <div class="book-tag">Legal Playbook</div>
+                            <div class="book-cover-title">The Tenant's Shield</div>
+                            <div class="book-cover-subtitle">Legal Tactics & Deposit Recovery in India · 2025 Edition</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weapon-content reveal-right">
+                    <h2>Don't beg for<br>your own money.</h2>
+                    <p class="weapon-desc">
+                        This is not a "negotiation guide." It is a legal toolkit designed to force compliance using the Indian Penal Code and Consumer Protection Act.
+                    </p>
+                    <ul class="arsenal-list">
+                        <li class="arsenal-item reveal reveal-delay-1">
+                            <div class="arsenal-check">✓</div>
+                            <div class="arsenal-text">
+                                <strong>Copy-Paste Legal Notices</strong>
+                                <span>Professionally drafted. Send within 24 hours of reading.</span>
+                            </div>
+                        </li>
+                        <li class="arsenal-item reveal reveal-delay-2">
+                            <div class="arsenal-check">✓</div>
+                            <div class="arsenal-text">
+                                <strong>WhatsApp Escalation Scripts</strong>
+                                <span>Psychological messaging sequences. Make ignoring you costly.</span>
+                            </div>
+                        </li>
+                        <li class="arsenal-item reveal reveal-delay-3">
+                            <div class="arsenal-check">✓</div>
+                            <div class="arsenal-text">
+                                <strong>IPC Section 406 References</strong>
+                                <span>Criminal Breach of Trust. Escalate from "dispute" to "offense."</span>
+                            </div>
+                        </li>
+                        <li class="arsenal-item reveal reveal-delay-4">
+                            <div class="arsenal-check">✓</div>
+                            <div class="arsenal-text">
+                                <strong>Consumer Court Filing Kit</strong>
+                                <span>₹100 filing fee. Forces judgment in months, not years.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ SCENE 4: THE EVIDENCE ═══════ -->
+    <section class="scene" id="scene-evidence">
+        <div class="scene-inner">
+            <div class="evidence-label reveal">Scene IV — Inside the Playbook</div>
+            <h2 class="evidence-title reveal reveal-delay-1">
+                Eight chapters.<br>Zero filler.
+            </h2>
+            <div class="chapter-stack">
+                <div class="chapter-row reveal reveal-delay-1">
+                    <div class="chapter-idx">CH. 01</div>
+                    <div class="chapter-body">
+                        <h3>The Notice Period Trap</h3>
+                        <p>How the "1 month notice" clause gets weaponized against you — and the legal loopholes that void it when misapplied.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-2">
+                    <div class="chapter-idx">CH. 02</div>
+                    <div class="chapter-body">
+                        <h3>The Rental Agreement Audit</h3>
+                        <p>Clauses that void your rights versus clauses that protect them. Learn to read the fine print your broker skipped.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-3">
+                    <div class="chapter-idx">CH. 03</div>
+                    <div class="chapter-body">
+                        <h3>Move-In Photo Evidence</h3>
+                        <p>The 12 specific photos you must take on Day 1. Timestamped metadata that landlords cannot dispute in any forum.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-2">
+                    <div class="chapter-idx">CH. 04</div>
+                    <div class="chapter-body">
+                        <h3>The Legal Notice Templates</h3>
+                        <p>Three ready-to-send drafts: the polite warning, the stern demand, and the criminal complaint threat. Copy, edit, send.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-3">
+                    <div class="chapter-idx">CH. 05</div>
+                    <div class="chapter-body">
+                        <h3>Police Station Tactics</h3>
+                        <p>The specific words and IPC sections to quote that transform a "civil matter" dismissal into an actionable complaint.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-4">
+                    <div class="chapter-idx">CH. 06</div>
+                    <div class="chapter-body">
+                        <h3>Negotiation Pressure Points</h3>
+                        <p>Psychological levers. When to push. When to wait. How to make silence work in your favor, not theirs.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-3">
+                    <div class="chapter-idx">CH. 07</div>
+                    <div class="chapter-body">
+                        <h3>Small Causes Court — Fast Track</h3>
+                        <p>Filing a summary suit that costs ₹100 and forces judgment in weeks. The exact format, fees, and procedure.</p>
+                    </div>
+                </div>
+                <div class="chapter-row reveal reveal-delay-4">
+                    <div class="chapter-idx">CH. 08</div>
+                    <div class="chapter-body">
+                        <h3>Emergency Eviction Defense</h3>
+                        <p>What to do if locked out illegally. Rights against utility cutoffs. The immediate legal remedies available at midnight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ SCENE 5: THE VERDICT ═══════ -->
+    <section class="scene" id="scene-verdict">
+        <div class="scene-inner">
+            <div class="evidence-label reveal">Scene V — The Verdict</div>
+            <h2 class="evidence-title reveal reveal-delay-1">
+                They paid.<br>In full.
+            </h2>
+            <div class="verdict-layout">
+                <div class="testimony reveal reveal-delay-2">
+                    <blockquote>
+                        "My landlord stopped answering calls after I moved out of Koramangala. I used the legal notice template from Chapter 4. He transferred ₹75,000 in four days. Didn't even argue."
+                    </blockquote>
+                    <cite>
+                        <strong>Rohan Mehta</strong>
+                        <span>Software Engineer · Bangalore · ₹75,000 recovered</span>
+                    </cite>
+                </div>
+                <div class="testimony reveal reveal-delay-3">
+                    <blockquote>
+                        "The police said 'civil matter' twice. This book taught me the exact IPC section to cite in my follow-up email. Got my full ₹1.2L deposit back within two weeks."
+                    </blockquote>
+                    <cite>
+                        <strong>Priya Srinivasan</strong>
+                        <span>Architect · Pune · ₹1,20,000 recovered</span>
+                    </cite>
+                </div>
+            </div>
+            <div class="guarantee reveal reveal-delay-4">
+                <div class="guarantee-badge">Zero Risk</div>
+                <h3>100% Money-Back Shield</h3>
+                <p>
+                    If these tactics don't give you a clear, actionable path to recovering your deposit — or if you're unsatisfied for any reason — email within 30 days for a full refund. No forms. No questions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ SCENE 6: THE QUESTIONS ═══════ -->
+    <section class="scene" id="scene-questions">
+        <div class="scene-inner">
+            <div class="evidence-label reveal">Scene VI — Objections</div>
+            <h2 class="evidence-title reveal reveal-delay-1">
+                Before you decide.
+            </h2>
+            <div class="faq-container">
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-q" id="faq-btn-1">
+                        My rental agreement is unregistered. Does any of this apply?
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            An unregistered agreement is still admissible as evidence of a financial transaction. The playbook covers specific tactics for unregistered rentals — including using bank transfer records and WhatsApp receipts as alternative proof in both police complaints and consumer forums.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-q" id="faq-btn-2">
+                        Can the police actually help? They turned me away once already.
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            That's the standard response. This book provides the specific legal language and IPC citations — particularly Section 406 (Criminal Breach of Trust) — that reframe the complaint from a "civil dispute" into a cognizable offense. Most tenants simply don't know the right words.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-3">
+                    <button class="faq-q" id="faq-btn-3">
+                        Does this work for PGs and co-living hostels?
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            Yes. The principles of "unjust enrichment" and breach of trust apply to any deposit taken for accommodation. The legal notice templates and consumer court strategies are adaptable for PG operators and co-living providers.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-4">
+                    <button class="faq-q" id="faq-btn-4">
+                        Is this just generic legal advice I could Google?
+                        <span class="faq-arrow">+</span>
+                    </button>
+                    <div class="faq-a">
+                        <div class="faq-a-inner">
+                            Googling gives you scattered, outdated, and state-agnostic advice. This playbook provides city-specific procedures (Bangalore, Mumbai, Delhi NCR, Pune), ready-to-send document templates, and a step-by-step escalation ladder — from WhatsApp message to courtroom filing. Try Googling "exact legal notice format for security deposit refund under Section 406 IPC with Bangalore jurisdiction" and see what you find.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ SCENE 7: THE CLOSING ═══════ -->
+    <section class="scene" id="scene-closing">
+        <div class="scene-inner">
+            <div class="closing-chapter reveal">Final Scene</div>
+            <h2 class="closing-headline reveal reveal-delay-1">
+                Your money.<br>Your move.
+            </h2>
+            <p class="closing-sub reveal reveal-delay-2">
+                ₹499 to protect ₹50,000–₹2,00,000. The math is not complicated.
+            </p>
+            <div class="closing-price reveal reveal-delay-3">
+                <div class="hero-price-strip" style="justify-content: center;">
+                    <span class="price-current">₹499</span>
+                    <span class="price-original">₹799</span>
+                </div>
+            </div>
+            <div class="reveal reveal-delay-4">
+                <a href="#" class="cta-primary" id="final-cta-btn">
+                    Get Instant Access Now
+                    <span style="font-size: 1.2rem;">→</span>
+                </a>
+                <span class="cta-subtext">Secure payment via Razorpay · Instant PDF delivery</span>
+            </div>
+            <div class="closing-footer reveal reveal-delay-5">
+                <div class="closing-footer-left">The Tenant's Shield · 2025</div>
+                <div class="closing-footer-right">Privacy · Terms · Contact</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ CHECKOUT MODAL ═══════ -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            
+            <!-- Step 1: Customer Details -->
+            <div class="modal-step active" id="step-details">
+                <h3 class="modal-title">Secure Checkout</h3>
+                <div class="order-summary">
+                    <span>The Tenant's Shield (PDF)</span>
+                    <strong>₹499</strong>
+                </div>
+                <div class="input-group">
+                    <label for="cust-name">Full Name</label>
+                    <input type="text" id="cust-name" class="input-field" placeholder="E.g., Rahul Sharma" required>
+                </div>
+                <div class="input-group">
+                    <label for="cust-email">Email Address</label>
+                    <input type="email" id="cust-email" class="input-field" placeholder="E.g., rahul@gmail.com" required>
+                    <span style="font-size: 0.75rem; color: var(--text-muted);">PDF playbook will be sent here</span>
+                </div>
+                <button class="cta-primary" id="btn-goto-payment" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    Proceed to Payment →
+                </button>
+            </div>
+
+            <!-- Step 2: Payment Simulation -->
+            <div class="modal-step" id="step-payment">
+                <div class="rp-header">
+                    <div class="rp-logo">Razorpay <span>SECURE</span></div>
+                    <div class="rp-amount">
+                        <div>Amount to Pay</div>
+                        <span>₹499.00</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                    Select a simulated payment method to test the flow:
+                </p>
+                <div class="payment-methods">
+                    <div class="method-card selected" data-method="upi">
+                        <div class="method-icon">⚡</div>
+                        <div class="method-info">
+                            <strong>UPI / Google Pay / PhonePe</strong>
+                            <span>Instant transfer via UPI app</span>
+                        </div>
+                    </div>
+                    <div class="method-card" data-method="card">
+                        <div class="method-icon">💳</div>
+                        <div class="method-info">
+                            <strong>Credit or Debit Card</strong>
+                            <span>Visa, MasterCard, RuPay, Maestro</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="cta-primary" id="btn-pay-now" style="width: 100%; justify-content: center; margin-top: 10px; background: #008ecc;">
+                    Pay ₹499 Securely
+                </button>
+            </div>
+
+            <!-- Step 3: Payment Loading / Processing -->
+            <div class="modal-step" id="step-processing" style="text-align: center; padding: 40px 0;">
+                <div style="width: 50px; height: 50px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-secondary);">
+                    Processing transaction... Do not close window.
+                </p>
+            </div>
+
+            <!-- Step 4: Success & Download -->
+            <div class="modal-step" id="step-success">
+                <div class="success-checkmark">✓</div>
+                <div class="success-details">
+                    <h3>Payment Successful!</h3>
+                    <p>
+                        Your payment was processed securely. <strong>The Tenant's Shield</strong> PDF has been prepared for your download.
+                    </p>
+                </div>
+                <div class="transaction-box">
+                    Ref ID: TS-MOCK-<span id="tx-id"></span><br>
+                    Email: <span id="success-email"></span>
+                </div>
+                <button class="cta-primary" id="btn-download-pdf" style="width: 100%; justify-content: center; background: var(--jade);">
+                    📥 Download Playbook (PDF)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ═══════ INTERSECTION OBSERVER — Staggered Reveals ═══════ */
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -60px 0px'
+            });
+
+            reveals.forEach(el => observer.observe(el));
+
+            /* ═══════ FAQ ACCORDION ═══════ */
+            document.querySelectorAll('.faq-q').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const answer = item.querySelector('.faq-a');
+                    const isOpen = item.classList.contains('open');
+
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('open');
+                        i.querySelector('.faq-a').style.maxHeight = null;
+                    });
+
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+
+            /* ═══════ SCROLL PROGRESS BAR ═══════ */
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = scrollTop / docHeight;
+                progressBar.style.transform = `scaleX(${progress})`;
+            }, { passive: true });
+
+            /* ═══════ CHECKOUT MODAL LOGIC ═══════ */
+            const modal = document.getElementById('checkout-modal');
+            const closeBtn = document.getElementById('modal-close-btn');
+            const heroCta = document.getElementById('hero-cta-btn');
+            const finalCta = document.getElementById('final-cta-btn');
+            
+            const stepDetails = document.getElementById('step-details');
+            const stepPayment = document.getElementById('step-payment');
+            const stepProcessing = document.getElementById('step-processing');
+            const stepSuccess = document.getElementById('step-success');
+
+            const custNameInput = document.getElementById('cust-name');
+            const custEmailInput = document.getElementById('cust-email');
+            
+            const btnGotoPayment = document.getElementById('btn-goto-payment');
+            const btnPayNow = document.getElementById('btn-pay-now');
+            const btnDownloadPdf = document.getElementById('btn-download-pdf');
+            
+            const methodCards = document.querySelectorAll('.method-card');
+            const txIdSpan = document.getElementById('tx-id');
+            const successEmailSpan = document.getElementById('success-email');
+
+            // Open modal
+            const openModal = (e) => {
+                e.preventDefault();
+                // Reset steps
+                stepDetails.classList.add('active');
+                stepPayment.classList.remove('active');
+                stepProcessing.classList.remove('active');
+                stepSuccess.classList.remove('active');
+                modal.classList.add('active');
+            };
+
+            if (heroCta) heroCta.addEventListener('click', openModal);
+            if (finalCta) finalCta.addEventListener('click', openModal);
+
+            // Close modal
+            const closeModal = () => {
+                modal.classList.remove('active');
+            };
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            // Payment method selection
+            methodCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    methodCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                });
+            });
+
+            // Step 1 -> Step 2
+            btnGotoPayment.addEventListener('click', () => {
+                const name = custNameInput.value.trim();
+                const email = custEmailInput.value.trim();
+
+                if (!name || !email) {
+                    alert('Please fill in both name and email.');
+                    return;
+                }
+                if (!email.includes('@') || !email.includes('.')) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                stepDetails.classList.remove('active');
+                stepPayment.classList.add('active');
+            });
+
+            // Step 2 -> Step 3 (Processing) -> Step 4 (Success)
+            btnPayNow.addEventListener('click', () => {
+                stepPayment.classList.remove('active');
+                stepProcessing.classList.add('active');
+
+                // Generate a random transaction ID
+                const randomId = Math.random().toString(36).substring(2, 10).toUpperCase() + 
+                                 Math.floor(1000 + Math.random() * 9000);
+
+                setTimeout(() => {
+                    stepProcessing.classList.remove('active');
+                    stepSuccess.classList.add('active');
+                    txIdSpan.textContent = randomId;
+                    successEmailSpan.textContent = custEmailInput.value.trim();
+                }, 1500); // 1.5 seconds simulation
+            });
+
+            // Download mock PDF
+            btnDownloadPdf.addEventListener('click', () => {
+                const pdfContent = `%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 124 >>
+stream
+BT
+/F1 18 Tf
+72 712 Td
+(THE TENANT'S SHIELD - PREVIEW CHAPTER) Tj
+/F1 12 Tf
+0 -40 Td
+(Thank you for downloading the preview version of The Tenant's Shield.) Tj
+0 -20 Td
+(Your payment of INR 499 was successful.) Tj
+0 -20 Td
+(In this guide, you will learn the exact steps to recover your security deposit.) Tj
+ET
+endstream
+endobj
+xref
+0 5
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000214 00000 n 
+trailer
+<< /Size 5 /Root 1 0 R >>
+startxref
+387
+%%EOF`;
+                
+                const blob = new Blob([pdfContent], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'tenants_shield_preview.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });
+    </script>
+</body>
+</html>
